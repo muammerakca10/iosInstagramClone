@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
@@ -26,7 +27,13 @@ class ViewController: UIViewController {
     @IBAction func signupButton(_ sender: Any) {
         
         if emailTextField.text != "" && passwordTextField.text != "" {
-            <#code#>
+            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { authDataRessult, error in
+                if error != nil {
+                    self.errorMessage(titleInput: "Error", messageInput: error?.localizedDescription ?? "User could not be created!")
+                }  else {
+                    self.performSegue(withIdentifier: "toFeedVC", sender: nil)
+                }
+            }
         } else {
             errorMessage(titleInput: "error", messageInput: "Email and Password cannot be empty")
         }
