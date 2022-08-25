@@ -12,7 +12,7 @@
         <!--Upload-->
         <scene sceneID="ENG-HB-GVp">
             <objects>
-                <viewController id="Xvc-dF-BWq" sceneMemberID="viewController">
+                <viewController id="Xvc-dF-BWq" customClass="UploadViewController" customModule="instagramClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VmV-vl-qUW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,12 +23,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAi-nE-xzi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-317" y="463"/>
+            <point key="canvasLocation" x="-317" y="102"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="fpB-F4-D9R">
+            <objects>
+                <viewController id="E0B-ob-b3K" customClass="SettingsViewController" customModule="instagramClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Ed-MH-9Me">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47g-ZK-2iW">
+                                <rect key="frame" x="161" y="432" width="98" height="38"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log Out">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                    <color key="baseForegroundColor" systemColor="systemGray6Color"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logoutButtonClicked:" destination="E0B-ob-b3K" eventType="touchUpInside" id="Kiv-mM-a8D"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vo7-Nn-cLV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="47g-ZK-2iW" firstAttribute="centerX" secondItem="vo7-Nn-cLV" secondAttribute="centerX" id="OLR-RO-apH"/>
+                            <constraint firstItem="47g-ZK-2iW" firstAttribute="centerY" secondItem="vo7-Nn-cLV" secondAttribute="centerY" id="gvh-gf-X75"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="hammer.fill" catalog="system" id="imy-tY-1Tt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bbz-Ig-eqm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-317" y="825"/>
         </scene>
         <!--Feed-->
         <scene sceneID="5eQ-c7-sxY">
             <objects>
-                <viewController id="iPM-ND-bHI" sceneMemberID="viewController">
+                <viewController id="iPM-ND-bHI" customClass="FeedViewController" customModule="instagramClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2bP-Ws-Zbi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Wb-n5-TF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-316" y="-200"/>
+            <point key="canvasLocation" x="-317" y="-653"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YMI-Bd-kPH">
@@ -54,11 +88,12 @@
                     <connections>
                         <segue destination="iPM-ND-bHI" kind="relationship" relationship="viewControllers" id="Usc-vh-Xef"/>
                         <segue destination="Xvc-dF-BWq" kind="relationship" relationship="viewControllers" id="eWq-bJ-doe"/>
+                        <segue destination="E0B-ob-b3K" kind="relationship" relationship="viewControllers" id="oua-VZ-KDg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7PL-9Q-h9L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1209" y="102"/>
+            <point key="canvasLocation" x="-1180" y="102"/>
         </scene>
         <!--Sign In & Sign Up-->
         <scene sceneID="CIq-gk-Ijm">
@@ -144,7 +179,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="RS6-Gv-NqE" id="VvX-bg-d7h"/>
                         <outlet property="passwordTextField" destination="1i3-rZ-Rg7" id="MBp-S6-G1Y"/>
-                        <segue destination="BzC-8P-7Fe" kind="presentation" modalPresentationStyle="fullScreen" id="NXl-co-2ul"/>
+                        <segue destination="BzC-8P-7Fe" kind="presentation" identifier="toFeedVC" modalPresentationStyle="fullScreen" id="NXl-co-2ul"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="My2-gx-YNI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -154,6 +189,7 @@
     </scenes>
     <resources>
         <image name="arrow.up.heart.fill" catalog="system" width="128" height="109"/>
+        <image name="hammer.fill" catalog="system" width="128" height="117"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -166,6 +202,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

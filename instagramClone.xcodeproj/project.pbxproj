@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4535538328B63E1800517D90 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535538228B63E1800517D90 /* DataService.swift */; };
 		4535538628B6498B00517D90 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535538528B6498B00517D90 /* Common.swift */; };
+		4535538828B7895100517D90 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535538728B7895100517D90 /* FeedViewController.swift */; };
+		4535538A28B7896A00517D90 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535538928B7896A00517D90 /* UploadViewController.swift */; };
+		4535538C28B7897B00517D90 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535538B28B7897B00517D90 /* SettingsViewController.swift */; };
 		4580DFAE28B3B61900FDE6A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4580DFAD28B3B61900FDE6A0 /* AppDelegate.swift */; };
 		4580DFB028B3B61900FDE6A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4580DFAF28B3B61900FDE6A0 /* SceneDelegate.swift */; };
 		4580DFB228B3B61900FDE6A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4580DFB128B3B61900FDE6A0 /* ViewController.swift */; };
@@ -24,6 +27,9 @@
 		4535537D28B635D100517D90 /* instagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4535538228B63E1800517D90 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		4535538528B6498B00517D90 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		4535538728B7895100517D90 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		4535538928B7896A00517D90 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		4535538B28B7897B00517D90 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4580DFAD28B3B61900FDE6A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4580DFAF28B3B61900FDE6A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4580DFB128B3B61900FDE6A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +75,9 @@
 			isa = PBXGroup;
 			children = (
 				4580DFB128B3B61900FDE6A0 /* ViewController.swift */,
+				4535538728B7895100517D90 /* FeedViewController.swift */,
+				4535538928B7896A00517D90 /* UploadViewController.swift */,
+				4535538B28B7897B00517D90 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -249,10 +258,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4580DFB228B3B61900FDE6A0 /* ViewController.swift in Sources */,
+				4535538A28B7896A00517D90 /* UploadViewController.swift in Sources */,
 				4580DFAE28B3B61900FDE6A0 /* AppDelegate.swift in Sources */,
 				4580DFB028B3B61900FDE6A0 /* SceneDelegate.swift in Sources */,
 				4535538628B6498B00517D90 /* Common.swift in Sources */,
+				4535538828B7895100517D90 /* FeedViewController.swift in Sources */,
 				4535538328B63E1800517D90 /* DataService.swift in Sources */,
+				4535538C28B7897B00517D90 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
