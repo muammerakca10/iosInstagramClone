@@ -26,30 +26,20 @@ class ViewController: UIViewController {
     
     @IBAction func signupButton(_ sender: Any) {
         
-        if emailTextField.text != "" && passwordTextField.text != "" {
+        if Helper.isEmailHasdot(emailTextField.text! ) && Helper.isEmailHasAtSymbol( emailTextField.text!) && Helper.isEmailOrPasswordNotBlank(emailTextField.text!, passwordTextField.text!) && Helper.isPasswordLengthEnough(passwordTextField.text!) {
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { authDataRessult, error in
                 if error != nil {
-                    self.errorMessage(titleInput: "Error", messageInput: error?.localizedDescription ?? "User could not be created!")
+                    Helper.giveErrorMessage(title: "Sign Up Error", message: error?.localizedDescription ?? "User could not be created", vc: self)
                 }  else {
                     self.performSegue(withIdentifier: "toFeedVC", sender: nil)
                 }
             }
-        } else {
-            errorMessage(titleInput: "error", messageInput: "Email and Password cannot be empty")
+        }
+        else {
+            Helper.giveErrorMessage(title: "Error", message: "Something went wrong", vc: self)
         }
         
         performSegue(withIdentifier: "toFeedVC", sender: nil)
     }
-    
-    
-    func errorMessage(titleInput : String, messageInput : String) {
-        let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
-        
-        alert.addAction(okButton)
-        present(alert, animated: true, completion: nil)
-    }
-    
 }
 
