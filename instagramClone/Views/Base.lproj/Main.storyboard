@@ -16,14 +16,59 @@
                     <view key="view" contentMode="scaleToFill" id="VmV-vl-qUW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i73-Pf-HQ8">
+                                <rect key="frame" x="20" y="115" width="374" height="359"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select and Share Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SK-A0-ggC">
+                                <rect key="frame" x="20" y="74" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.18961072201705265" blue="0.21071523659138536" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tIf-GC-amr">
+                                <rect key="frame" x="20" y="494" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRu-Lj-39g">
+                                <rect key="frame" x="173" y="558" width="68" height="37"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="19"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="uploadButtonTapped:" destination="Xvc-dF-BWq" eventType="touchUpInside" id="I3b-b2-eD2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Edz-36-jji"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Edz-36-jji" firstAttribute="trailing" secondItem="9SK-A0-ggC" secondAttribute="trailing" constant="20" id="2oc-vX-uga"/>
+                            <constraint firstItem="i73-Pf-HQ8" firstAttribute="leading" secondItem="Edz-36-jji" secondAttribute="leading" constant="20" id="67E-qc-9Zj"/>
+                            <constraint firstItem="Edz-36-jji" firstAttribute="bottom" secondItem="tIf-GC-amr" secondAttribute="bottom" constant="285" id="9Rr-v2-keg"/>
+                            <constraint firstItem="9SK-A0-ggC" firstAttribute="top" secondItem="Edz-36-jji" secondAttribute="top" constant="30" id="EbH-CV-8hA"/>
+                            <constraint firstItem="QRu-Lj-39g" firstAttribute="top" secondItem="tIf-GC-amr" secondAttribute="bottom" constant="30" id="Sbi-nr-LfI"/>
+                            <constraint firstItem="tIf-GC-amr" firstAttribute="top" secondItem="i73-Pf-HQ8" secondAttribute="bottom" constant="20" id="Ueb-Wx-X5b"/>
+                            <constraint firstItem="tIf-GC-amr" firstAttribute="leading" secondItem="Edz-36-jji" secondAttribute="leading" constant="20" id="iII-aH-uWP"/>
+                            <constraint firstItem="i73-Pf-HQ8" firstAttribute="top" secondItem="9SK-A0-ggC" secondAttribute="bottom" constant="20" id="kxk-D7-JEJ"/>
+                            <constraint firstItem="QRu-Lj-39g" firstAttribute="centerX" secondItem="VmV-vl-qUW" secondAttribute="centerX" id="nbT-kR-OSk"/>
+                            <constraint firstItem="9SK-A0-ggC" firstAttribute="leading" secondItem="Edz-36-jji" secondAttribute="leading" constant="20" id="oAq-Cy-kWb"/>
+                            <constraint firstItem="Edz-36-jji" firstAttribute="trailing" secondItem="tIf-GC-amr" secondAttribute="trailing" constant="20" id="pWt-8D-waH"/>
+                            <constraint firstItem="Edz-36-jji" firstAttribute="trailing" secondItem="i73-Pf-HQ8" secondAttribute="trailing" constant="20" id="to8-1y-Tth"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="arrow.up.heart.fill" catalog="system" id="htg-LQ-5gI"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="tIf-GC-amr" id="6SA-5Q-xN8"/>
+                        <outlet property="imageView" destination="i73-Pf-HQ8" id="GKg-Ai-png"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAi-nE-xzi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-317" y="102"/>
+            <point key="canvasLocation" x="-317.39130434782612" y="101.78571428571428"/>
         </scene>
         <!--Settings-->
         <scene sceneID="fpB-F4-D9R">
@@ -199,6 +244,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
