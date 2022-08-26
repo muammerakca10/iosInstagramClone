@@ -54,6 +54,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="hammer.fill" catalog="system" id="imy-tY-1Tt"/>
+                    <connections>
+                        <segue destination="Tb7-aa-CxB" kind="presentation" identifier="toFeedVC" modalPresentationStyle="fullScreen" id="xQH-px-IND"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbz-Ig-eqm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,7 +81,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="YMI-Bd-kPH">
             <objects>
-                <tabBarController id="BzC-8P-7Fe" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="BzC-8P-7Fe" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="KjL-4w-PBQ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4Hs-q0-rtm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

@@ -20,6 +20,7 @@ class SettingsViewController: UIViewController {
     @IBAction func logoutButtonClicked(_ sender: Any) {
         do {
             try Auth.auth().signOut()
+            performSegue(withIdentifier: "toFeedVC", sender: nil)
         } catch {
             Helper.giveErrorMessage(title: "Error", message: "Could not log out", vc: self)
         }
