@@ -64,7 +64,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                                     if error != nil {
                                         Helper.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "An error occurred", vc: self)
                                     } else {
-                                        
+                                        self.descriptionTextField.text = ""
+                                        self.tabBarController?.selectedIndex = 0
+                                        self.imageView.image = nil
                                     }
                                 }
                             }
@@ -73,7 +75,5 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                 }
             }
         }
-        
     }
-    
 }

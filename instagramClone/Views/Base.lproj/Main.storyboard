@@ -114,14 +114,39 @@
                     <view key="view" contentMode="scaleToFill" id="2bP-Ws-Zbi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6gr-mD-k3W">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="295" id="ThV-c4-JEs">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="295"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ThV-c4-JEs" id="jic-9P-DiV">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="295"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3Ou-eO-RZ0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6gr-mD-k3W" firstAttribute="top" secondItem="3Ou-eO-RZ0" secondAttribute="top" id="1Zy-5P-jDH"/>
+                            <constraint firstItem="3Ou-eO-RZ0" firstAttribute="trailing" secondItem="6gr-mD-k3W" secondAttribute="trailing" id="Ck7-8u-WpJ"/>
+                            <constraint firstItem="3Ou-eO-RZ0" firstAttribute="bottom" secondItem="6gr-mD-k3W" secondAttribute="bottom" id="aoG-0f-lFs"/>
+                            <constraint firstItem="6gr-mD-k3W" firstAttribute="leading" secondItem="3Ou-eO-RZ0" secondAttribute="leading" id="x1n-qJ-j9J"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="house" catalog="system" id="9ir-Ko-I8K"/>
+                    <connections>
+                        <outlet property="tableView" destination="6gr-mD-k3W" id="vQt-ld-omX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Wb-n5-TF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-317" y="-653"/>
+            <point key="canvasLocation" x="-317.39130434782612" y="-653.57142857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YMI-Bd-kPH">
