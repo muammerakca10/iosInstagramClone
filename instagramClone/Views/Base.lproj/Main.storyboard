@@ -119,13 +119,49 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="295" id="ThV-c4-JEs">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="295"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="441" id="ThV-c4-JEs" customClass="FeedCell" customModule="instagramClone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="441"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ThV-c4-JEs" id="jic-9P-DiV">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="295"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="441"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJQ-qG-ZTe">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="374" id="ENv-Fa-NCP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tnh-9m-Bji">
+                                                    <rect key="frame" x="20" y="31" width="374" height="342"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3e-Qo-8Iv">
+                                                    <rect key="frame" x="20" y="383" width="374" height="47"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="d3e-Qo-8Iv" firstAttribute="top" secondItem="Tnh-9m-Bji" secondAttribute="bottom" constant="10" id="3pR-0P-jnP"/>
+                                                <constraint firstItem="UJQ-qG-ZTe" firstAttribute="leading" secondItem="jic-9P-DiV" secondAttribute="leadingMargin" id="6Pk-yW-CXG"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Tnh-9m-Bji" secondAttribute="bottom" constant="57" id="7oT-lp-ESj"/>
+                                                <constraint firstItem="UJQ-qG-ZTe" firstAttribute="top" secondItem="jic-9P-DiV" secondAttribute="top" id="Igg-RT-uD6"/>
+                                                <constraint firstAttribute="trailing" secondItem="d3e-Qo-8Iv" secondAttribute="trailing" constant="20" id="Kya-f9-ISL"/>
+                                                <constraint firstItem="Tnh-9m-Bji" firstAttribute="top" secondItem="UJQ-qG-ZTe" secondAttribute="bottom" constant="10" id="N6p-fJ-ieU"/>
+                                                <constraint firstItem="UJQ-qG-ZTe" firstAttribute="leading" secondItem="Tnh-9m-Bji" secondAttribute="leading" id="cwY-wW-GDA"/>
+                                                <constraint firstItem="d3e-Qo-8Iv" firstAttribute="leading" secondItem="jic-9P-DiV" secondAttribute="leading" constant="20" id="j14-vx-7s9"/>
+                                                <constraint firstItem="UJQ-qG-ZTe" firstAttribute="trailing" secondItem="Tnh-9m-Bji" secondAttribute="trailing" id="xDs-r0-1eQ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionTextFieldCell" destination="d3e-Qo-8Iv" id="oqv-zb-ZYm"/>
+                                            <outlet property="emailTextFieldCell" destination="UJQ-qG-ZTe" id="1M3-7p-y8w"/>
+                                            <outlet property="imageViewCell" destination="Tnh-9m-Bji" id="z9F-cL-d0q"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -133,10 +169,10 @@
                         <viewLayoutGuide key="safeArea" id="3Ou-eO-RZ0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6gr-mD-k3W" firstAttribute="top" secondItem="3Ou-eO-RZ0" secondAttribute="top" id="1Zy-5P-jDH"/>
-                            <constraint firstItem="3Ou-eO-RZ0" firstAttribute="trailing" secondItem="6gr-mD-k3W" secondAttribute="trailing" id="Ck7-8u-WpJ"/>
-                            <constraint firstItem="3Ou-eO-RZ0" firstAttribute="bottom" secondItem="6gr-mD-k3W" secondAttribute="bottom" id="aoG-0f-lFs"/>
-                            <constraint firstItem="6gr-mD-k3W" firstAttribute="leading" secondItem="3Ou-eO-RZ0" secondAttribute="leading" id="x1n-qJ-j9J"/>
+                            <constraint firstItem="6gr-mD-k3W" firstAttribute="bottom" secondItem="3Ou-eO-RZ0" secondAttribute="bottom" id="8ve-uS-saE"/>
+                            <constraint firstItem="6gr-mD-k3W" firstAttribute="leading" secondItem="2bP-Ws-Zbi" secondAttribute="leading" id="BmH-Xa-OfQ"/>
+                            <constraint firstAttribute="trailing" secondItem="6gr-mD-k3W" secondAttribute="trailing" id="QqG-gD-Vj7"/>
+                            <constraint firstItem="6gr-mD-k3W" firstAttribute="top" secondItem="3Ou-eO-RZ0" secondAttribute="top" id="lwq-xe-Qkb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="house" catalog="system" id="9ir-Ko-I8K"/>

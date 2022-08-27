@@ -27,7 +27,5 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 5
     }
     
-    func tableView
-    
 
 }
