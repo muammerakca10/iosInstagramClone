@@ -93,10 +93,7 @@ NSString *const kGTMSessionFetcherServiceSessionKey = @"kGTMSessionFetcherServic
   NSURLCredential *_credential;       // Username & password.
   NSURLCredential *_proxyCredential;  // Credential supplied to proxy servers.
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
   id<GTMFetcherAuthorizationProtocol> _authorizer;
-#pragma clang diagnostic pop
 
   // For waitForCompletionOfAllFetchersWithTimeout: we need to wait on stopped fetchers since
   // they've not yet finished invoking their queued callbacks. This array is nil except when
@@ -825,8 +822,6 @@ NSString *const kGTMSessionFetcherServiceSessionKey = @"kGTMSessionFetcherServic
   }
 }
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
 - (id<GTMFetcherAuthorizationProtocol>)authorizer {
   @synchronized(self) {
     GTMSessionMonitorSynchronized(self);
@@ -852,7 +847,6 @@ NSString *const kGTMSessionFetcherServiceSessionKey = @"kGTMSessionFetcherServic
     [obj setFetcherService:self];
   }
 }
-#pragma clang diagnostic pop
 
 // This should be called inside a @synchronized(self) block except during dealloc.
 - (void)detachAuthorizer {

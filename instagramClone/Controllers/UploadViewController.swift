@@ -13,7 +13,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet var imageView: UIImageView!
     
     
-    @IBOutlet var descriptionTextView: UITextField!
+    @IBOutlet var descriptionTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +54,20 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                     imageReference.downloadURL { (url, error) in
                         if error == nil {
                             let imageUrl = url?.absoluteString
+                            
+                            if let imageUrl = imageUrl {
+                                let firestoreDatabase = Firestore.firestore()
+                                
+                                let firestorePost = ["imageURL" : imageUrl , "comment" : self.descriptionTextField.text! , "email" : Auth.auth().currentUser?.email , "date" : FieldValue.serverTimestamp() ] as [String : Any]
+                                
+                                firestoreDatabase.collection("Post").addDocument(data: firestorePost) { (error) in
+                                    if error != nil {
+                                        Helper.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "An error occurred", vc: self)
+                                    } else {
+                                        
+                                    }
+                                }
+                            }
                         }
                     }
                 }

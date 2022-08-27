@@ -62,7 +62,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="arrow.up.heart.fill" catalog="system" id="htg-LQ-5gI"/>
                     <connections>
-                        <outlet property="descriptionTextView" destination="tIf-GC-amr" id="6SA-5Q-xN8"/>
+                        <outlet property="descriptionTextField" destination="tIf-GC-amr" id="Iby-9O-YPO"/>
                         <outlet property="imageView" destination="i73-Pf-HQ8" id="GKg-Ai-png"/>
                     </connections>
                 </viewController>

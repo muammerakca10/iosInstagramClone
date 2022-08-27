@@ -227,10 +227,7 @@ static GTMSessionFetcherTestBlock _Nullable gGlobalTestBlock;
   dispatch_group_t _callbackGroup;   // read-only after creation
   NSOperationQueue *_delegateQueue;  // immutable after beginFetch
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
   id<GTMFetcherAuthorizationProtocol> _authorizer;  // immutable after beginFetch
-#pragma clang diagnostic pop
 
   // The service object that created and monitors this fetcher, if any.
   id<GTMSessionFetcherServiceProtocol>
@@ -1681,22 +1678,8 @@ NSData *_Nullable GTMDataFromInputStream(NSInputStream *inputStream, NSError **o
   GTMSessionCheckNotSynchronized(self);
 
   id authorizer = self.authorizer;
-  // Prefer the block-based implementation. This *is* a change in behavior, but if authorizers
-  // previously provided this method they would presumably assume they can be used for the same
-  // requests as before.
-  if ([authorizer respondsToSelector:@selector(authorizeRequest:completionHandler:)]) {
-    // It's unknown how long an authorizer maintains ownership of the provided block, so
-    // avoid potential retain cycles on self and the authorizer.
-    __weak __typeof__(self) weakSelf = self;
-    NSMutableURLRequest *mutableRequest = [self.request mutableCopy];
-    [authorizer authorizeRequest:mutableRequest
-               completionHandler:^(NSError *_Nullable error) {
-                 [weakSelf authorizer:nil
-                               request:mutableRequest
-                     finishedWithError:error];
-               }];
-  } else if ([authorizer respondsToSelector:@selector(authorizeRequest:
-                                                              delegate:didFinishSelector:)]) {
+  SEL asyncAuthSel = @selector(authorizeRequest:delegate:didFinishSelector:);
+  if ([authorizer respondsToSelector:asyncAuthSel]) {
     SEL callbackSel = @selector(authorizer:request:finishedWithError:);
     NSMutableURLRequest *mutableRequest = [self.request mutableCopy];
     [authorizer authorizeRequest:mutableRequest delegate:self didFinishSelector:callbackSel];
@@ -1709,17 +1692,14 @@ NSData *_Nullable GTMDataFromInputStream(NSInputStream *inputStream, NSError **o
   }
 }
 
-// The authorizer parameter is unused, and the block-based callback will never pass
-// non-nil; the field is only for the deprecated selector-based implementation for
-// legacy reasons.
-- (void)authorizer:(nullable id __unused)auth
-              request:(nullable NSMutableURLRequest *)authorizedRequest
-    finishedWithError:(nullable NSError *)error {
+- (void)authorizer:(id<GTMFetcherAuthorizationProtocol>)auth
+              request:(NSMutableURLRequest *)authorizedRequest
+    finishedWithError:(NSError *)error {
   GTMSessionCheckNotSynchronized(self);
 
   if (error != nil) {
     // We can't fetch without authorization
-    [self failToBeginFetchWithError:(NSError *_Nonnull)error];
+    [self failToBeginFetchWithError:error];
   } else {
     @synchronized(self) {
       _request = authorizedRequest;
@@ -3816,8 +3796,6 @@ static NSMutableDictionary *gSystemCompletionHandlers = nil;
   }  // @synchronized(self)
 }
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
 - (nullable id<GTMFetcherAuthorizationProtocol>)authorizer {
   @synchronized(self) {
     GTMSessionMonitorSynchronized(self);
@@ -3840,7 +3818,6 @@ static NSMutableDictionary *gSystemCompletionHandlers = nil;
     }
   }  // @synchronized(self)
 }
-#pragma clang diagnostic pop
 
 - (nullable NSData *)downloadedData {
   @synchronized(self) {
