@@ -25,13 +25,13 @@ class ViewController: UIViewController {
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authDataResult, error) in
                 
                 if error != nil {
-                    Helper.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "Something went wrong" , vc: self)
+                    GiveError.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "Something went wrong" , vc: self)
                 } else {
                     self.performSegue(withIdentifier: "toFeedVC", sender: nil)
                 }
             }
         } else {
-            Helper.giveErrorMessage(title: "Error", message: "Enter a valid email and password", vc: self)
+            GiveError.giveErrorMessage(title: "Error", message: "Enter a valid email and password", vc: self)
         }
     }
     
@@ -41,14 +41,14 @@ class ViewController: UIViewController {
         if emailTextField.text != "" && passwordTextField.text != "" {
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authdataresult, error) in
                 if error != nil {
-                    Helper.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "Something went wrong" , vc: self)
+                    GiveError.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "Something went wrong" , vc: self)
                 } else {
                     self.performSegue(withIdentifier: "toFeedVC", sender: nil)
                 }
             }
                 
         } else {
-            Helper.giveErrorMessage(title: "Error", message: "Enter a valid username and password", vc: self)
+            GiveError.giveErrorMessage(title: "Error", message: "Enter a valid username and password", vc: self)
         }
     }
     

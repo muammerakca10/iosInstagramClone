@@ -11,9 +11,7 @@ import SDWebImage
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var emailArray = [String]()
-    var commentArray = [String]()
-    var imageArray = [String]()
+    var postArray = [Post]()
 
     @IBOutlet var tableView: UITableView!
     
@@ -32,32 +30,27 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         firestoreDatabase.collection("Post").order(by: "date", descending: true).addSnapshotListener { (snapshot, error) in
             
             if error != nil {
-                Helper.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "An error Occurred", vc: self)
+                GiveError.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "An error Occurred", vc: self)
             } else {
                 if snapshot?.isEmpty != true && snapshot != nil {
                     
-                    self.emailArray.removeAll(keepingCapacity: false)
-                    self.commentArray.removeAll(keepingCapacity: false)
-                    self.imageArray.removeAll(keepingCapacity: false)
+                    self.postArray.removeAll(keepingCapacity: false)
                     
                     for document in snapshot!.documents {
                         
                         //let documentID = document.documentID
                         
                         if let email = document.get("email") as? String {
-                            self.emailArray.append(email)
+                            
+                            if let comment = document.get("comment") as? String {
+                             
+                                if let imageURL = document.get("imageURL") as? String {
+                                    let post = Post(email: email, comment: comment, imageURL: imageURL)
+                                    self.postArray.append(post)
+                                }
+                                
+                            }
                         }
-                        
-                        if let comment = document.get("comment") as? String {
-                            self.commentArray.append(comment)
-                        }
-                        
-                        
-                        if let imageURL = document.get("imageURL") as? String {
-                            self.imageArray.append(imageURL)
-                        }
-                        
-                        
                     }
                     self.tableView.reloadData()
                 }
@@ -68,16 +61,16 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedCell
-        cell.emailTextFieldCell.text = emailArray[indexPath.row]
-        cell.descriptionTextFieldCell.text = commentArray[indexPath.row]
-        cell.imageViewCell.sd_setImage(with: URL(string: self.imageArray[indexPath.row]))
+        cell.emailTextFieldCell.text = postArray[indexPath.row].email
+        cell.descriptionTextFieldCell.text = postArray[indexPath.row].comment
+        cell.imageViewCell.sd_setImage(with: URL(string: self.postArray[indexPath.row].imageURL))
         
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return emailArray.count
+        return postArray.count
     }
     
 

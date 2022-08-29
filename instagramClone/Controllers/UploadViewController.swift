@@ -49,7 +49,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             imageReference.putData(data, metadata: nil) { (storagemetadata, error) in
                 
                 if error != nil {
-                    Helper.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "An error occurred!", vc: self)
+                    GiveError.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "An error occurred!", vc: self)
                 } else {
                     imageReference.downloadURL { (url, error) in
                         if error == nil {
@@ -62,7 +62,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                                 
                                 firestoreDatabase.collection("Post").addDocument(data: firestorePost) { (error) in
                                     if error != nil {
-                                        Helper.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "An error occurred", vc: self)
+                                        GiveError.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "An error occurred", vc: self)
                                     } else {
                                         self.descriptionTextField.text = ""
                                         self.tabBarController?.selectedIndex = 0

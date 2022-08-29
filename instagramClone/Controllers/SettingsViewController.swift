@@ -22,7 +22,7 @@ class SettingsViewController: UIViewController {
             try Auth.auth().signOut()
             performSegue(withIdentifier: "toFeedVC", sender: nil)
         } catch {
-            Helper.giveErrorMessage(title: "Error", message: "Could not log out", vc: self)
+            GiveError.giveErrorMessage(title: "Error", message: "Could not log out", vc: self)
         }
         
         
