@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -28,12 +29,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func getDatasFromFirebase () {
         let firestoreDatabase = Firestore.firestore()
         
-        firestoreDatabase.collection("Post").addSnapshotListener { (snapshot, error) in
+        firestoreDatabase.collection("Post").order(by: "date", descending: true).addSnapshotListener { (snapshot, error) in
             
             if error != nil {
                 Helper.giveErrorMessage(title: "Error", message: error?.localizedDescription ?? "An error Occurred", vc: self)
             } else {
                 if snapshot?.isEmpty != true && snapshot != nil {
+                    
+                    self.emailArray.removeAll(keepingCapacity: false)
+                    self.commentArray.removeAll(keepingCapacity: false)
+                    self.imageArray.removeAll(keepingCapacity: false)
+                    
                     for document in snapshot!.documents {
                         
                         //let documentID = document.documentID
@@ -64,7 +70,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedCell
         cell.emailTextFieldCell.text = emailArray[indexPath.row]
         cell.descriptionTextFieldCell.text = commentArray[indexPath.row]
-        cell.imageViewCell.image = nil
+        cell.imageViewCell.sd_setImage(with: URL(string: self.imageArray[indexPath.row]))
         
         
         return cell
