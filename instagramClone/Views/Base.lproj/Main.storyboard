@@ -77,8 +77,20 @@
                     <view key="view" contentMode="scaleToFill" id="3Ed-MH-9Me">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="COE-CD-wn5">
+                                <rect key="frame" x="78" y="329" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vo7-Nn-cLV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vo7-Nn-cLV" firstAttribute="bottom" secondItem="COE-CD-wn5" secondAttribute="bottom" id="BlR-Wz-GEf"/>
+                            <constraint firstItem="COE-CD-wn5" firstAttribute="top" secondItem="vo7-Nn-cLV" secondAttribute="top" id="IbP-HI-VyT"/>
+                            <constraint firstItem="vo7-Nn-cLV" firstAttribute="trailing" secondItem="COE-CD-wn5" secondAttribute="trailing" id="PgB-76-Gpl"/>
+                            <constraint firstItem="COE-CD-wn5" firstAttribute="leading" secondItem="vo7-Nn-cLV" secondAttribute="leading" id="Pjm-PF-Stj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="Jji-cG-BD9"/>
                     <connections>
@@ -281,11 +293,11 @@
             </objects>
             <point key="canvasLocation" x="-2177" y="102"/>
         </scene>
-        <!--Settings-->
+        <!--Profile-->
         <scene sceneID="EJX-q3-r8A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kDE-4X-P3i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="hammer.fill" catalog="system" id="imy-tY-1Tt"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="imy-tY-1Tt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OXP-ra-HKA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -303,8 +315,8 @@
     </scenes>
     <resources>
         <image name="arrow.up.heart.fill" catalog="system" width="128" height="109"/>
-        <image name="hammer.fill" catalog="system" width="128" height="117"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

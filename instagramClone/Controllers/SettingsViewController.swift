@@ -14,8 +14,10 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(logoutBarButtonTapped))
-         
-         
+        
+        //self.tabBarItem.title = "@Profile"
+        
+        self.navigationItem.title = Auth.auth().currentUser?.email
     }
     
     @objc private func logoutBarButtonTapped(){
@@ -36,4 +38,6 @@ class SettingsViewController: UIViewController {
         
         present(alertLogout, animated: true)
     }
+    
+    
 }
