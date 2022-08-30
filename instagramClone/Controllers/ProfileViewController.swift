@@ -8,10 +8,25 @@
 import UIKit
 import Firebase
 
-class SettingsViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet var tableView: UITableView!
+    var profilePostArray = [Post]()
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        for post in FeedViewController.postArray {
+            if post.email == Auth.auth().currentUser?.email {
+                profilePostArray.append(post)
+            }
+        }
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(logoutBarButtonTapped))
         
@@ -38,6 +53,20 @@ class SettingsViewController: UIViewController {
         
         present(alertLogout, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedCell
+        cell.emailTextFieldCell.text = profilePostArray[indexPath.row].email
+        cell.descriptionTextFieldCell.text = profilePostArray[indexPath.row].comment
+        cell.imageViewCell.sd_setImage(with: URL(string: profilePostArray[indexPath.row].imageURL))
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return profilePostArray.count
+    }
+    
+    
     
     
 }

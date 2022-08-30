@@ -11,7 +11,7 @@ import SDWebImage
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var postArray = [Post]()
+    static var postArray = [Post]()
 
     @IBOutlet var tableView: UITableView!
     
@@ -34,7 +34,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             } else {
                 if snapshot?.isEmpty != true && snapshot != nil {
                     
-                    self.postArray.removeAll(keepingCapacity: false)
+                    FeedViewController.postArray.removeAll(keepingCapacity: false)
                     
                     for document in snapshot!.documents {
                         
@@ -46,7 +46,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                              
                                 if let imageURL = document.get("imageURL") as? String {
                                     let post = Post(email: email, comment: comment, imageURL: imageURL)
-                                    self.postArray.append(post)
+                                    FeedViewController.postArray.append(post)
                                 }
                                 
                             }
@@ -61,16 +61,16 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedCell
-        cell.emailTextFieldCell.text = postArray[indexPath.row].email
-        cell.descriptionTextFieldCell.text = postArray[indexPath.row].comment
-        cell.imageViewCell.sd_setImage(with: URL(string: self.postArray[indexPath.row].imageURL))
+        cell.emailTextFieldCell.text = FeedViewController.postArray[indexPath.row].email
+        cell.descriptionTextFieldCell.text = FeedViewController.postArray[indexPath.row].comment
+        cell.imageViewCell.sd_setImage(with: URL(string: FeedViewController.postArray[indexPath.row].imageURL))
         
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postArray.count
+        return FeedViewController.postArray.count
     }
     
 

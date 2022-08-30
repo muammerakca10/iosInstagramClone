@@ -11,7 +11,7 @@
 		4535538628B6498B00517D90 /* GiveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535538528B6498B00517D90 /* GiveError.swift */; };
 		4535538828B7895100517D90 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535538728B7895100517D90 /* FeedViewController.swift */; };
 		4535538A28B7896A00517D90 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535538928B7896A00517D90 /* UploadViewController.swift */; };
-		4535538C28B7897B00517D90 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535538B28B7897B00517D90 /* SettingsViewController.swift */; };
+		4535538C28B7897B00517D90 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535538B28B7897B00517D90 /* ProfileViewController.swift */; };
 		4580DFAE28B3B61900FDE6A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4580DFAD28B3B61900FDE6A0 /* AppDelegate.swift */; };
 		4580DFB028B3B61900FDE6A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4580DFAF28B3B61900FDE6A0 /* SceneDelegate.swift */; };
 		4580DFB228B3B61900FDE6A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4580DFB128B3B61900FDE6A0 /* ViewController.swift */; };
@@ -31,7 +31,7 @@
 		4535538528B6498B00517D90 /* GiveError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveError.swift; sourceTree = "<group>"; };
 		4535538728B7895100517D90 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		4535538928B7896A00517D90 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
-		4535538B28B7897B00517D90 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4535538B28B7897B00517D90 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4580DFAD28B3B61900FDE6A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4580DFAF28B3B61900FDE6A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4580DFB128B3B61900FDE6A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 				4535538728B7895100517D90 /* FeedViewController.swift */,
 				459BCF5D28BA4F6C0035F0E4 /* FeedCell.swift */,
 				4535538928B7896A00517D90 /* UploadViewController.swift */,
-				4535538B28B7897B00517D90 /* SettingsViewController.swift */,
+				4535538B28B7897B00517D90 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -278,7 +278,7 @@
 				4535538628B6498B00517D90 /* GiveError.swift in Sources */,
 				4535538828B7895100517D90 /* FeedViewController.swift in Sources */,
 				4535538328B63E1800517D90 /* DataService.swift in Sources */,
-				4535538C28B7897B00517D90 /* SettingsViewController.swift in Sources */,
+				4535538C28B7897B00517D90 /* ProfileViewController.swift in Sources */,
 				459BCF5E28BA4F6C0035F0E4 /* FeedCell.swift in Sources */,
 				45B454A828BCDCE400377E49 /* Post.swift in Sources */,
 			);
