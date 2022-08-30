@@ -70,42 +70,24 @@
             </objects>
             <point key="canvasLocation" x="-317.39130434782612" y="101.78571428571428"/>
         </scene>
-        <!--Settings-->
+        <!--Profile-->
         <scene sceneID="fpB-F4-D9R">
             <objects>
                 <viewController id="E0B-ob-b3K" customClass="SettingsViewController" customModule="instagramClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ed-MH-9Me">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47g-ZK-2iW">
-                                <rect key="frame" x="161" y="432" width="98" height="38"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Log Out">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
-                                    <color key="baseForegroundColor" systemColor="systemGray6Color"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="logoutButtonClicked:" destination="E0B-ob-b3K" eventType="touchUpInside" id="Kiv-mM-a8D"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vo7-Nn-cLV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="47g-ZK-2iW" firstAttribute="centerX" secondItem="vo7-Nn-cLV" secondAttribute="centerX" id="OLR-RO-apH"/>
-                            <constraint firstItem="47g-ZK-2iW" firstAttribute="centerY" secondItem="vo7-Nn-cLV" secondAttribute="centerY" id="gvh-gf-X75"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="hammer.fill" catalog="system" id="imy-tY-1Tt"/>
+                    <navigationItem key="navigationItem" title="Profile" id="Jji-cG-BD9"/>
                     <connections>
                         <segue destination="Tb7-aa-CxB" kind="presentation" identifier="toFeedVC" modalPresentationStyle="fullScreen" id="xQH-px-IND"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbz-Ig-eqm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-317" y="825"/>
+            <point key="canvasLocation" x="592.75362318840587" y="825"/>
         </scene>
         <!--Feed-->
         <scene sceneID="5eQ-c7-sxY">
@@ -201,7 +183,7 @@
                     <connections>
                         <segue destination="iPM-ND-bHI" kind="relationship" relationship="viewControllers" id="Usc-vh-Xef"/>
                         <segue destination="Xvc-dF-BWq" kind="relationship" relationship="viewControllers" id="eWq-bJ-doe"/>
-                        <segue destination="E0B-ob-b3K" kind="relationship" relationship="viewControllers" id="oua-VZ-KDg"/>
+                        <segue destination="kDE-4X-P3i" kind="relationship" relationship="viewControllers" id="oua-VZ-KDg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7PL-9Q-h9L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -299,6 +281,25 @@
             </objects>
             <point key="canvasLocation" x="-2177" y="102"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="EJX-q3-r8A">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kDE-4X-P3i" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="hammer.fill" catalog="system" id="imy-tY-1Tt"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OXP-ra-HKA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="E0B-ob-b3K" kind="relationship" relationship="rootViewController" id="voe-RR-mig"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q5y-G5-o43" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-317.39130434782612" y="825"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.up.heart.fill" catalog="system" width="128" height="109"/>
@@ -318,9 +319,6 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
