@@ -12,11 +12,8 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
-    
-    
+
     @IBAction func logoutButtonClicked(_ sender: Any) {
         do {
             try Auth.auth().signOut()
@@ -24,8 +21,5 @@ class SettingsViewController: UIViewController {
         } catch {
             GiveError.giveErrorMessage(title: "Error", message: "Could not log out", vc: self)
         }
-        
-        
     }
-    
 }

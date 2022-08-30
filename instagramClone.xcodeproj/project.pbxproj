@@ -108,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				4535538528B6498B00517D90 /* GiveError.swift */,
-				45B454A728BCDCE400377E49 /* Post.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -126,6 +125,7 @@
 		4580DFAC28B3B61900FDE6A0 /* instagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				458B0D9828BDF8C100222A49 /* Model */,
 				4535538428B6497600517D90 /* Helpers */,
 				4535538128B63DF200517D90 /* Services */,
 				4535538028B63DC000517D90 /* Views */,
@@ -136,6 +136,14 @@
 				4580DFC128B3B79D00FDE6A0 /* GoogleService-Info.plist */,
 			);
 			path = instagramClone;
+			sourceTree = "<group>";
+		};
+		458B0D9828BDF8C100222A49 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45B454A728BCDCE400377E49 /* Post.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		6F5354CF6CFCCFB03BCEE096 /* Pods */ = {
